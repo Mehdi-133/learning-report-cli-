@@ -1,22 +1,22 @@
-const resources = require("../data/resources");
+import resources from "../data/resources.js";
 
-function countResources(resources) {
+export function countResources(resources) {
   return resources.length;
 }
 
-function getTotalDuration(resources) {
+export function getTotalDuration(resources) {
   return resources.reduce((total, resource) => {
     return total + resource.durationMinutes;
   }, 0);
 }
 
-function getAverageDuration(resources) {
+export function getAverageDuration(resources) {
   const total = getTotalDuration(resources);
   const avg = total / countResources(resources);
   return avg;
 }
 
-function countByLevel(resources) {
+export function countByLevel(resources) {
   return resources.reduce((counts, resource) => {
     const level = resource.level;
 
@@ -26,7 +26,7 @@ function countByLevel(resources) {
   }, {});
 }
 
-function countByCategory(resources) {
+export function countByCategory(resources) {
   return resources.reduce((counts, resource) => {
     const category = resource.category;
 
@@ -36,13 +36,13 @@ function countByCategory(resources) {
   }, {});
 }
 
-function filterByCategory(resources, category) {
+export function filterByCategory(resources, category) {
   return resources.filter((resource) => {
     return resource.category === category;
   });
 }
 
-function getMostCompletedResource(resources) {
+export function getMostCompletedResource(resources) {
   return resources.reduce((completed, resource) => {
     if (resource.completedBy.length > completed.completedBy.length) {
       return resource;
@@ -50,15 +50,4 @@ function getMostCompletedResource(resources) {
     return completed;
   }, resources[0]);
 }
-
-module.exports = {
-  countResources,
-  getTotalDuration,
-  getAverageDuration,
-  countByLevel,
-  countByCategory,
-  getMostCompletedResource,
-  filterByCategory,
-};
-
 

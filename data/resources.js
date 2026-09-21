@@ -97,4 +97,4 @@ const resources = [
   },
 ];
 
-module.exports = resources;
+export default resources;

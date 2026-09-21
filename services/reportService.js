@@ -1,5 +1,7 @@
-const resources = require("../data/resources");
-const {
+import resources from "../data/resources.js";
+
+import
+ {
   countResources,
   getTotalDuration,
   getAverageDuration,
@@ -7,9 +9,9 @@ const {
   countByCategory,
   getMostCompletedResource,
   filterByCategory,
-} = require("./resourceService");
+} from "./resourceService.js";
 
-function report() {
+ export function report() {
   const totalResources = countResources(resources);
   const totalDuration = getTotalDuration(resources);
   const averageDuration = getAverageDuration(resources);
@@ -39,4 +41,4 @@ ${mostCompleted.title} - ${mostCompleted.completedBy.length} learners
 `;
 }
 
-module.exports = report;
+export default report;

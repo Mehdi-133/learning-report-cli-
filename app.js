@@ -1,4 +1,4 @@
-const report = require("./services/reportService");
+import report from "./services/reportService.js";
 
 console.log("learning report");
 console.log(typeof window);
